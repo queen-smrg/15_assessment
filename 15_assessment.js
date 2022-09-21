@@ -143,7 +143,7 @@ function assessment_func(k) {
 
   // resultDivided に Bootstrap のスタイルを適用する
   resultDivided.setAttribute('class', 'card');
-  resultDivided.setAttribute('style', 'max-width: 700px;')
+  resultDivided.setAttribute('style', 'max-width: 700px;');
 
   // headerDivided と bodyDivided を resultDivided に差し込む
   resultDivided.appendChild(headerDivided);
