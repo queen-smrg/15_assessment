@@ -6,17 +6,18 @@ const addInput = document.getElementById('add-input');
 let userNameInput = null;
 let assessmentButton = null;
 let dummyButton = document.getElementById('dummy');
-let input_titles = ["年齢は？", "出身地は？", "性別は？"];
-let input_idname = ["user-age", "user-place", "user-fm"];
-let button_labels = ["診断する", "今度こそ診断する", "今度こそ本当に診断する"];
-let button_functions = ["dummy_age()", "dummy_place()", "dummy_gender()"]
+let input_titles = ["", "年齢は？", "出身地は？", "性別は？"];
+let input_idnames = ["user-name", "user-age", "user-place", "user-fm"];
+let button_labels = ["", "診断する", "今度こそ診断する", "今度こそ本当に診断する"];
+let button_functions = ["", "dummy_age()", "dummy_place()", "dummy_gender()"];
+let button_idnames = ["dummy", "dummy_age", "dummy_place", "dummy_gender"];
 let input_velues = [];
 
 let assess_comments = [
   "年齢の隠しコマンドは「0」でした！",
   "出身地の隠しコマンドは「地球」でした！",
   "年齢・出身地・に隠しコマンドがあるよ！"
-]
+];
 
 
 
@@ -36,21 +37,24 @@ function create_input(j) {
   input_add.setAttribute("size", "40");
   input_add.setAttribute("maxlength", "20");
   input_add.setAttribute("class", "form-control");
-  input_add.setAttribute("id", input_idname[j]);
+  input_add.setAttribute("id", input_idnames[j]);
   
   div_boot.appendChild(input_add);
   
   //再度診断するボタンを作る
   const re_button = document.createElement('button');
   re_button.setAttribute("onclick", button_functions[j]);
+  re_button.setAttribute("id", button_idnames[j]);
   re_button.setAttribute("class", "input-group-text");
   re_button.innerText = button_labels[j];
   
   div_boot.appendChild(re_button);
 
   addInput.appendChild(div_boot);
-
-  j++;
+  
+  //ボタンのonclickを削除
+  let elm = document.getElementById(button_idnames[j-1]);
+  elm.removeAttribute("onclick");
   return;
 };
 
@@ -96,7 +100,6 @@ function dummy_place() {
     create_input(2);
   }
   return;
-
 };
 
 function dummy_gender() {
@@ -108,7 +111,6 @@ function dummy_gender() {
   //次のテキスト入力を出力
   assessment_func(2);
   return;
-
 };
 
 
@@ -120,8 +122,11 @@ function assessment_func(k) {
     return;
   }
   console.log(userName);
-  // 診断結果表示エリアの作成
+  //ボタンのonclickを削除
+  let elm = document.getElementById(button_idnames[k+1]);
+  elm.removeAttribute("onclick");
   
+  // 診断結果表示エリアの作成
   // headerDivided の作成
   const headerDivided = document.createElement('div');
   headerDivided.setAttribute('class', 'card-header');
@@ -188,7 +193,7 @@ const answers = [
   '{userName}のいいところは気配りです。{userName}の配慮が多くの人を救っています。',
   '{userName}のいいところはその全てです。ありのままの{userName}自身がいいところなのです。',
   '{userName}のいいところは自制心です。やばいと思ったときにしっかりと衝動を抑えられる{userName}が皆から評価されています。',
-]
+];
 
 /**
  * 名前の文字列を渡すと診断結果を返す関数
@@ -209,14 +214,6 @@ function assessment(userName) {
   result = result.replaceAll('{userName}', userName);
   return [index, result];
 }
-
-
-/************************************************************************************ */
-
-
-
-
-
 
 
 
