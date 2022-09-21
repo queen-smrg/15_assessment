@@ -62,6 +62,10 @@ function create_input(j) {
 function dummy_name() {
   //名前を取得
   userNameInput = document.getElementById('user-name');
+  if (userNameInput.value.length === 0) {
+    // 名前が空の時は処理を終了する
+    return;
+  }
   input_velues.push(userNameInput.value);
   console.log(input_velues);
 
@@ -74,6 +78,10 @@ function dummy_name() {
 function dummy_age() {
   //年齢を取得
   const ageInput = document.getElementById('user-age');
+  if (ageInput.value.length === 0) {
+    // 名前が空の時は処理を終了する
+    return;
+  }
   input_velues.push(ageInput.value);
   console.log(input_velues);
 
@@ -90,6 +98,10 @@ function dummy_age() {
 function dummy_place() {
   //場所を取得
   const placeInput = document.getElementById('user-place');
+  if (placeInput.value.length === 0) {
+    // 名前が空の時は処理を終了する
+    return;
+  }
   input_velues.push(placeInput.value);
   console.log(input_velues);
 
@@ -105,6 +117,10 @@ function dummy_place() {
 function dummy_gender() {
   //性別を取得
   const genderInput = document.getElementById('user-fm');
+  if (genderInput.value.length === 0) {
+    // 名前が空の時は処理を終了する
+    return;
+  }
   input_velues.push(genderInput.value);
   console.log(input_velues);
 
