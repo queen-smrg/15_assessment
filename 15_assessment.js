@@ -37,6 +37,7 @@ function create_input(j) {
   input_add.setAttribute("maxlength", "20");
   input_add.setAttribute("class", "form-control");
   input_add.setAttribute("id", input_idname[j]);
+  
   div_boot.appendChild(input_add);
   
   //再度診断するボタンを作る
@@ -44,6 +45,7 @@ function create_input(j) {
   re_button.setAttribute("onclick", button_functions[j]);
   re_button.setAttribute("class", "input-group-text");
   re_button.innerText = button_labels[j];
+  
   div_boot.appendChild(re_button);
 
   addInput.appendChild(div_boot);
@@ -119,19 +121,33 @@ function assessment_func(k) {
   }
   console.log(userName);
   // 診断結果表示エリアの作成
-  resultDivided.innerText = '';
-  const header = document.createElement('h3');
-  header.innerText = '診断結果';
-  resultDivided.appendChild(header);
+  
+  // headerDivided の作成
+  const headerDivided = document.createElement('div');
+  headerDivided.setAttribute('class', 'card-header');
+  headerDivided.innerText = '診断結果';
 
-  const p_aori = document.createElement('p');
-  p_aori.innerText = "名前だけでよかったのにね(∩´∀｀)∩ \n" + assess_comments[k];
-  resultDivided.appendChild(p_aori);
+  // bodyDivided の作成
+  const bodyDivided = document.createElement('div');
+  bodyDivided.setAttribute('class', 'card-body');
 
   const paragraph = document.createElement('p');
+  paragraph.setAttribute('class', 'card-text');
   const result = assessment(userName)[1];
   paragraph.innerText = result;
-  resultDivided.appendChild(paragraph);
+  bodyDivided.appendChild(paragraph);
+
+  const p_aori = document.createElement('p');
+  p_aori.innerText = assess_comments[k];
+  bodyDivided.appendChild(p_aori);
+
+  // resultDivided に Bootstrap のスタイルを適用する
+  resultDivided.setAttribute('class', 'card');
+  resultDivided.setAttribute('style', 'max-width: 700px;')
+
+  // headerDivided と bodyDivided を resultDivided に差し込む
+  resultDivided.appendChild(headerDivided);
+  resultDivided.appendChild(bodyDivided);
 
   console.log(assessment(userName)[0]);
 
