@@ -12,23 +12,23 @@
 </head>
 
 <body>
-      <header>
-      <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">あなたのいいところ診断</a>
-        </div>
-      </nav>
-    </header>
-
-      <div class="container pt-5">
-      <h1>あなたのいいところは?</h1>
-      <p>診断したい名前を入れて下さい</p>
-
-      <div class="input-group mb-3" style="max-width: 500px;">
-        <input type="text" class="form-control" id="user-name" size="40" maxlength="20" />
-        <button class="input-group-text" id="assessment">診断する</button>
-        <div id="add-input"></div>
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">あなたのいいところ診断</a>
       </div>
+    </nav>
+  </header>
+
+  <div class="container pt-5">
+    <h1>あなたのいいところは?</h1>
+    <p>診断したい名前を入れて下さい</p>
+
+    <div class="input-group mb-3" style="max-width: 500px;">
+      <input type="text" class="form-control" id="user-name" size="40" maxlength="20" />
+      <button class="input-group-text" id="dummy" onclick="dummy_name()">診断する</button>
+      <div id="add-input"></div>
+    </div>
 
       <div id="result-area"></div>
       <div id="tweet-area"></div>
