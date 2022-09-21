@@ -21,28 +21,33 @@ let assess_comments = [
 
 
 function create_input(j) {
+  //質問段落の出力
+  const p_ques = document.createElement('p');
+  p_ques.innerText = input_titles[j];
+  addInput.appendChild(p_ques);
+  
   //inputの出力
+  const div_boot = document.createElement('div');
+  div_boot.setAttribute("class", "input-group mb-3");
+  div_boot.setAttribute("style", "max-width: 600px;");
+  
   const input_add = document.createElement('input');
   input_add.setAttribute("type", "text");
   input_add.setAttribute("size", "40");
   input_add.setAttribute("maxlength", "20");
+  input_add.setAttribute("class", "form-control");
   input_add.setAttribute("id", input_idname[j]);
-  //質問段落の出力
-  const p_ques = document.createElement('p');
-  p_ques.innerText = input_titles[j];
-
-  addInput.appendChild(p_ques);
-  addInput.appendChild(input_add);
-
+  div_boot.appendChild(input_add);
+  
   //再度診断するボタンを作る
   const re_button = document.createElement('button');
   re_button.setAttribute("onclick", button_functions[j]);
+  re_button.setAttribute("class", "input-group-text");
   re_button.innerText = button_labels[j];
+  div_boot.appendChild(re_button);
 
-  //ボタンのスタイル設定
-  re_button.setAttribute("class", "diagnose");
+  addInput.appendChild(div_boot);
 
-  addInput.appendChild(re_button);
   j++;
   return;
 };
