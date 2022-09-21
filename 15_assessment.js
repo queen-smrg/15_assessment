@@ -66,7 +66,7 @@ function dummy_name() {
   console.log(input_velues);
 
   //次のテキスト入力を出力
-  create_input(0);
+  create_input(1);
   return;
 };
 
@@ -81,7 +81,7 @@ function dummy_age() {
   if (ageInput.value == String(0)) {
     assessment_func(0); //0を入力したら終了
   } else {
-    create_input(1);
+    create_input(2);
   }
   return;
 };
@@ -97,7 +97,7 @@ function dummy_place() {
   if (input_velues[2] == "地球") {
     assessment_func(1); //地球を入力したら終了
   } else {
-    create_input(2);
+    create_input(3);
   }
   return;
 };
