@@ -159,7 +159,7 @@ function assessment_func(k) {
   bodyDivided.appendChild(paragraph);
 
   const p_aori = document.createElement('p');
-  p_aori.innerText = assess_comments[k];
+  p_aori.innerText = "名前だけで良かったのにね(∩´∀｀)∩\n" + assess_comments[k];
   bodyDivided.appendChild(p_aori);
 
   // resultDivided に Bootstrap のスタイルを適用する
